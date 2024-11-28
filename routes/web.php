@@ -2,11 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dashboard\Analytics;
-use App\Http\Controllers\layouts\WithoutMenu;
-use App\Http\Controllers\layouts\WithoutNavbar;
-use App\Http\Controllers\layouts\Fluid;
-use App\Http\Controllers\layouts\Container;
-use App\Http\Controllers\layouts\Blank;
+use App\Http\Controllers\sidebar\timesheets;
+use App\Http\Controllers\sidebar\todo;
+use App\Http\Controllers\sidebar\report;
+use App\Http\Controllers\sidebar\settings;
+
+
 use App\Http\Controllers\pages\AccountSettingsAccount;
 use App\Http\Controllers\pages\AccountSettingsNotifications;
 use App\Http\Controllers\pages\AccountSettingsConnections;
@@ -42,18 +43,34 @@ use App\Http\Controllers\form_elements\BasicInput;
 use App\Http\Controllers\form_elements\InputGroups;
 use App\Http\Controllers\form_layouts\VerticalForm;
 use App\Http\Controllers\form_layouts\HorizontalForm;
+
 use App\Http\Controllers\tables\Basic as TablesBasic;
 
 // Main Page Route
 // Dashboard
 Route::get('/', [Analytics::class, 'index'])->name('app-dashboard');
 
-// layout
-Route::get('/layouts/without-menu', [WithoutMenu::class, 'index'])->name('layouts-without-menu');
-Route::get('/layouts/without-navbar', [WithoutNavbar::class, 'index'])->name('layouts-without-navbar');
-Route::get('/layouts/fluid', [Fluid::class, 'index'])->name('layouts-fluid');
-Route::get('/layouts/container', [Container::class, 'index'])->name('layouts-container');
-Route::get('/layouts/blank', [Blank::class, 'index'])->name('layouts-blank');
+// Timesheets
+Route::get('/sidebar/timesheets', [timesheets::class, 'index'])->name('app-timesheets');
+
+// To do
+Route::get('/sidebar/todo', [todo::class, 'index'])->name('app-todo');
+
+// Report
+Route::get('/sidebar/report', [report::class, 'index'])->name('app-report');
+
+// Settings
+Route::get('/sidebar/settings', [settings::class, 'index'])->name('app-settings');
+
+
+
+
+
+
+// Route::get('/layouts/without-navbar', [WithoutNavbar::class, 'index'])->name('layouts-without-navbar');
+// Route::get('/layouts/fluid', [Fluid::class, 'index'])->name('layouts-fluid');
+// Route::get('/layouts/container', [Container::class, 'index'])->name('layouts-container');
+// Route::get('/layouts/blank', [Blank::class, 'index'])->name('layouts-blank');
 
 // pages
 Route::get('/pages/account-settings-account', [AccountSettingsAccount::class, 'index'])->name('pages-account-settings-account');

@@ -4,39 +4,34 @@
       "menuHeader": "Welcome!"
     },
     {
-      "url": "",
+      "url": "/",
       "name": "Dashboard",
       "icon": "menu-icon tf-icons mdi mdi-view-grid-outline",
-      "slug": "app-dashboard",
-      "target": "_blank"
+      "slug": "app-dashboard"
     },
     {
-      "url": "",
+      "url": "/sidebar/timesheets",
       "name": "Timesheets",
       "icon": "menu-icon tf-icons mdi mdi-timer-refresh-outline",
-      "slug": "app-timesheets",
-      "target": "_blank"
+      "slug": "app-timesheets"
     },
     {
-      "url": "",
+      "url": "/sidebar/todo",
       "name": "Todo",
       "icon": "menu-icon tf-icons mdi mdi-file-document-alert-outline",
-      "slug": "app-todo",
-      "target": "_blank"
+      "slug": "app-todo"
     },
     {
-      "url": "",
+      "url": "/sidebar/report",
       "name": "Report",
       "icon": "menu-icon tf-icons mdi mdi-file-document",
-      "slug": "app-report",
-      "target": "_blank"
+      "slug": "app-report"
     },
     {
-      "url": "",
+      "url": "/sidebar/settings",
       "name": "Settings",
       "icon": "menu-icon tf-icons mdi mdi-cog",
-      "slug": "app-settings",
-      "target": "_blank"
+      "slug": "app-settings"
     }
   ]
 }

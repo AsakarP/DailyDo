@@ -7,6 +7,7 @@ use App\Http\Controllers\sidebar\todo;
 use App\Http\Controllers\sidebar\report;
 use App\Http\Controllers\sidebar\settings;
 use App\Http\Controllers\pages\AccountSettingsAccount;
+use App\Http\Controllers\authentications\RegisterBasic;
 
 // Main Page Route
 // Dashboard
@@ -26,3 +27,5 @@ Route::get('/sidebar/settings', [settings::class, 'index'])->name('app-settings'
 Route::get('/pages/account-settings-account', [AccountSettingsAccount::class, 'index'])->name('app-settings');
 // Route::get('/pages/account-settings-account', [AccountSettingsAccount::class, 'index'])->name('pages-account-settings-account');
 // Route::get('/pages/account-settings-account', [AccountSettingsAccount::class, 'index'])->name('pages-account-settings-account');
+
+Route::get('/authentications/auth-register-basic', [RegisterBasic::class, 'index'])->name('auth-register-basic');

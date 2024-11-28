@@ -28,7 +28,7 @@
       "slug": "app-report"
     },
     {
-      "url": "/sidebar/settings",
+      "url": "/pages/account-settings-account",
       "name": "Settings",
       "icon": "menu-icon tf-icons mdi mdi-cog",
       "slug": "app-settings"

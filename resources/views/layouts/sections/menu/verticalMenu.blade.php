@@ -3,7 +3,9 @@
   <!-- ! Hide app brand if navbar-full -->
   <div class="app-brand demo">
     <a href="{{url('/')}}" class="app-brand-link">
-      <span class="app-brand-text demo menu-text fw-semibold ms-2">DailyDo</span>
+      <span class="app-brand-text demo menu-text fw-semibold ms-2">
+        <span class="text-daily">Daily</span><span class="text-do">Do</span>
+      </span>
     </a>
 
     <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">

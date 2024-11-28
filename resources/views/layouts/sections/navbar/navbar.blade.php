@@ -42,7 +42,7 @@ $navbarDetached = ($navbarDetached ?? '');
         <div class="navbar-nav align-items-center">
           <div class="nav-item d-flex align-items-center">
             <i class="mdi mdi-magnify mdi-24px lh-0"></i>
-            <input type="text" class="form-control border-0 shadow-none bg-body" placeholder="Search..." aria-label="Search...">
+            <input type="text" class="form-control border-2 shadow-none bg-white" placeholder="Search..." aria-label="Search..." style="width: 500px;">
           </div>
         </div>
         <!-- /Search -->

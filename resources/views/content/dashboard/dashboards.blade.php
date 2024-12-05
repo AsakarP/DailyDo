@@ -1,234 +1,156 @@
 @extends('layouts/contentNavbarLayout')
 
-@section('title', 'Dashboard - Analytics')
-
-@section('vendor-style')
-<link rel="stylesheet" href="{{asset('assets/vendor/libs/apex-charts/apex-charts.css')}}">
-@endsection
-
-@section('vendor-script')
-<script src="{{asset('assets/vendor/libs/apex-charts/apexcharts.js')}}"></script>
-@endsection
-
-@section('page-script')
-<script src="{{asset('assets/js/dashboards-analytics.js')}}"></script>
-@endsection
+@section('title', 'Dashboard - DailyDo')
 
 @section('content')
-<div class="row gy-4">
-  <!-- Congratulations card -->
-  <div class="col-md-12 col-lg-4">
-    <div class="card">
-      <div class="card-body">
-        <h4 class="card-title mb-1">Weekly Activity</h4>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <h4 class="text-primary mb-1">0%</h4>
-      </div>
-      <img src="{{asset('assets/img/icons/misc/triangle-light.png')}}" class="scaleX-n1-rtl position-absolute bottom-0 end-0" width="166" alt="triangle background">
-      <img src="{{asset('assets/img/illustrations/trophy.png')}}" class="scaleX-n1-rtl position-absolute bottom-0 end-0 me-4 mb-4 pb-2" width="83" alt="view sales">
+
+<div class="container">
+  <!-- Header Section -->
+  <div class="row mb-4">
+    <div class="col-6">
+      <h2>Today</h2>
+      <p>Mon 22, 2021 | 10:00 AM</p>
+    </div>
+    <div class="col-6 text-end">
+      <button class="btn btn-primary">
+        <i class="bi bi-play-circle"></i> Start Time Tracker
+      </button>
     </div>
   </div>
-  <!--/ Congratulations card -->
 
-  <!-- Transactions -->
-  <div class="col-lg-8">
-    <div class="card">
-      <div class="card-header">
-        <div class="d-flex align-items-center justify-content-between">
-          <h5 class="card-title m-0 me-2">Worked This Week</h5>
-          <div class="dropdown">
-            <button class="btn p-0" type="button" id="transactionID" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="mdi mdi-dots-vertical mdi-24px"></i>
-            </button>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="transactionID">
-              <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
-              <a class="dropdown-item" href="javascript:void(0);">Share</a>
-              <a class="dropdown-item" href="javascript:void(0);">Update</a>
-            </div>
-          </div>
+  <!-- Overview Section -->
+  <div class="row mb-4 text-center">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5>Weekly Activity</h5>
+          <h2 class="text-primary">0%</h2>
         </div>
-        <h4 class="text-primary mb-1">0%</h4>
       </div>
     </div>
-  </div>
-  <!--/ Transactions -->
-
-  <!-- Weekly Overview Chart -->
-  <div class="col-xl-4 col-md-6">
-    <div class="card">
-      <div class="card-header">
-        <div class="d-flex justify-content-between">
-          <h5 class="mb-1">Weekly Overview</h5>
-          <div class="dropdown">
-            <button class="btn p-0" type="button" id="weeklyOverviewDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="mdi mdi-dots-vertical mdi-24px"></i>
-            </button>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="weeklyOverviewDropdown">
-              <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
-              <a class="dropdown-item" href="javascript:void(0);">Share</a>
-              <a class="dropdown-item" href="javascript:void(0);">Update</a>
-            </div>
-          </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5>Worked This Week</h5>
+          <h2 class="text-primary">40:00:05</h2>
         </div>
       </div>
-      <div class="card-body">
-        <div id="weeklyOverviewChart"></div>
-        <div class="mt-1 mt-md-3">
-          <div class="d-flex align-items-center gap-3">
-            <h3 class="mb-0">45%</h3>
-            <p class="mb-0">Your performance is 45% better compared to last month</p>
-          </div>
-          <div class="d-grid mt-3 mt-md-4">
-            <button class="btn btn-primary" type="button">Details</button>
-          </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5>Project Worked</h5>
+          <h2 class="text-primary">02</h2>
         </div>
       </div>
     </div>
   </div>
-  <!--/ Weekly Overview Chart -->
 
-  <!-- Data Tables -->
-  <div class="col-12">
-    <div class="card">
-      <div class="table-responsive">
-        <table class="table">
-          <thead class="table-light">
-            <tr>
-              <th class="text-truncate">User</th>
-              <th class="text-truncate">Email</th>
-              <th class="text-truncate">Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <div class="d-flex align-items-center">
-                  <div class="avatar avatar-sm me-3">
-                    <img src="{{asset('assets/img/avatars/1.png')}}" alt="Avatar" class="rounded-circle">
-                  </div>
-                  <div>
-                    <h6 class="mb-0 text-truncate">Jordan Stevenson</h6>
-                    <small class="text-truncate">@amiccoo</small>
-                  </div>
-                </div>
-              </td>
-              <td class="text-truncate">susanna.Lind57@gmail.com</td>
-              <td><span class="badge bg-label-warning rounded-pill">Pending</span></td>
-            </tr>
-            <tr>
-              <td>
-                <div class="d-flex align-items-center">
-                  <div class="avatar avatar-sm me-3">
-                    <img src="{{asset('assets/img/avatars/3.png')}}" alt="Avatar" class="rounded-circle">
-                  </div>
-                  <div>
-                    <h6 class="mb-0 text-truncate">Benedetto Rossiter</h6>
-                    <small class="text-truncate">@brossiter15</small>
-                  </div>
-                </div>
-              </td>
-              <td class="text-truncate">estelle.Bailey10@gmail.com</td>
-              <td><span class="badge bg-label-success rounded-pill">Active</span></td>
-            </tr>
-            <tr>
-              <td>
-                <div class="d-flex align-items-center">
-                  <div class="avatar avatar-sm me-3">
-                    <img src="{{asset('assets/img/avatars/2.png')}}" alt="Avatar" class="rounded-circle">
-                  </div>
-                  <div>
-                    <h6 class="mb-0 text-truncate">Bentlee Emblin</h6>
-                    <small class="text-truncate">@bemblinf</small>
-                  </div>
-                </div>
-              </td>
-              <td class="text-truncate">milo86@hotmail.com</td>
-              <td><span class="badge bg-label-success rounded-pill">Active</span></td>
-            </tr>
-            <tr>
-              <td>
-                <div class="d-flex align-items-center">
-                  <div class="avatar avatar-sm me-3">
-                    <img src="{{asset('assets/img/avatars/5.png')}}" alt="Avatar" class="rounded-circle">
-                  </div>
-                  <div>
-                    <h6 class="mb-0 text-truncate">Bertha Biner</h6>
-                    <small class="text-truncate">@bbinerh</small>
-                  </div>
-                </div>
-              </td>
-              <td class="text-truncate">lonnie35@hotmail.com</td>
-              <td><span class="badge bg-label-warning rounded-pill">Pending</span></td>
-            </tr>
-            <tr>
-              <td>
-                <div class="d-flex align-items-center">
-                  <div class="avatar avatar-sm me-3">
-                    <img src="{{asset('assets/img/avatars/4.png')}}" alt="Avatar" class="rounded-circle">
-                  </div>
-                  <div>
-                    <h6 class="mb-0 text-truncate">Beverlie Krabbe</h6>
-                    <small class="text-truncate">@bkrabbe1d</small>
-                  </div>
-                </div>
-              </td>
-              <td class="text-truncate">ahmad_Collins@yahoo.com</td>
-              <td><span class="badge bg-label-success rounded-pill">Active</span></td>
-            </tr>
-            <tr>
-              <td>
-                <div class="d-flex align-items-center">
-                  <div class="avatar avatar-sm me-3">
-                    <img src="{{asset('assets/img/avatars/7.png')}}" alt="Avatar" class="rounded-circle">
-                  </div>
-                  <div>
-                    <h6 class="mb-0 text-truncate">Bradan Rosebotham</h6>
-                    <small class="text-truncate">@brosebothamz</small>
-                  </div>
-                </div>
-              </td>
-              <td class="text-truncate">tillman.Gleason68@hotmail.com</td>
-              <td><span class="badge bg-label-warning rounded-pill">Pending</span></td>
-            </tr>
-            <tr>
-              <td>
-                <div class="d-flex align-items-center">
-                  <div class="avatar avatar-sm me-3">
-                    <img src="{{asset('assets/img/avatars/6.png')}}" alt="Avatar" class="rounded-circle">
-                  </div>
-                  <div>
-                    <h6 class="mb-0 text-truncate">Bree Kilday</h6>
-                    <small class="text-truncate">@bkildayr</small>
-                  </div>
-                </div>
-              </td>
-              <td class="text-truncate">otho21@gmail.com</td>
-              <td><span class="badge bg-label-success rounded-pill">Active</span></td>
-            </tr>
-            <tr class="border-transparent">
-              <td>
-                <div class="d-flex align-items-center">
-                  <div class="avatar avatar-sm me-3">
-                    <img src="{{asset('assets/img/avatars/1.png')}}" alt="Avatar" class="rounded-circle">
-                  </div>
-                  <div>
-                    <h6 class="mb-0 text-truncate">Breena Gallemore</h6>
-                    <small class="text-truncate">@bgallemore6</small>
-                  </div>
-                </div>
-              </td>
-              <td class="text-truncate">florencio.Little@hotmail.com</td>
-              <td><span class="badge bg-label-secondary rounded-pill">Inactive</span></td>
-            </tr>
-          </tbody>
-        </table>
+  <!-- To-Do and Projects Section -->
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h6>To Do</h6>
+        </div>
+        <div class="card-body">
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Creating Wireframe
+              <span class="badge bg-primary">02:44:00</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Research Development
+              <span class="badge bg-primary">02:20:00</span>
+            </li>
+          </ul>
+          <div class="text-end mt-3">
+            <button class="btn btn-outline-primary">View Reports</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h6>Projects</h6>
+        </div>
+        <div class="card-body">
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Project One
+              <span class="badge bg-primary">08:40:00</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Project Two
+              <span class="badge bg-primary">08:00:00</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Project Three
+              <span class="badge bg-primary">03:20:00</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Project Four
+              <span class="badge bg-primary">03:30:00</span>
+            </li>
+          </ul>
+          <div class="text-end mt-3">
+            <button class="btn btn-outline-primary">View All</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <!--/ Data Tables -->
+
+  <!-- Members Section -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h6>Members</h6>
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Member Info</th>
+                <th>Today</th>
+                <th>This Week</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <img src="https://via.placeholder.com/50" alt="Avatar" class="rounded-circle me-3">
+                    <div>
+                      <h6 class="mb-0">John Elker</h6>
+                      <small>Food Dashboard Design</small>
+                    </div>
+                  </div>
+                </td>
+                <td>08:40:00</td>
+                <td>08:40:00</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <img src="https://via.placeholder.com/50" alt="Avatar" class="rounded-circle me-3">
+                    <div>
+                      <h6 class="mb-0">Rubik Sans</h6>
+                      <small>Project Name</small>
+                    </div>
+                  </div>
+                </td>
+                <td>08:40:00</td>
+                <td>08:40:00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
 @endsection

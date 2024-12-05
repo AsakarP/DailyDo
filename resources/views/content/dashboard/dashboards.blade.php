@@ -80,7 +80,7 @@
         <div class="mt-1 mt-md-3">
           <div class="d-flex align-items-center gap-3">
             <h3 class="mb-0">45%</h3>
-            <p class="mb-0">Your performance is 45% 😎 better compared to last month</p>
+            <p class="mb-0">Your performance is 45% better compared to last month</p>
           </div>
           <div class="d-grid mt-3 mt-md-4">
             <button class="btn btn-primary" type="button">Details</button>

@@ -44,4 +44,29 @@ class TaskController extends Controller
 
         return response()->json(['success' => 'Task updated successfully!']);
     }
+
+    public function startTimer(Task $task)
+    {
+        $task->timer_start = now();
+        $task->save();
+
+        return response()->json(['message' => 'Timer started successfully.']);
+    }
+
+    public function stopTimer(Task $task)
+    {
+        if (!$task->timer_start) {
+            return response()->json(['message' => 'No timer running.'], 400);
+        }
+
+        $elapsedTime = now()->diffInSeconds($task->timer_start);
+        $task->total_time += $elapsedTime;
+        $task->timer_start = null;
+        $task->save();
+
+        return response()->json([
+            'message' => 'Timer stopped successfully.',
+            'elapsed_time' => $elapsedTime
+        ]);
+    }
 }

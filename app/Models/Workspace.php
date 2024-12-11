@@ -9,24 +9,18 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 // User Model
-class User extends Authenticatable
+class Workspace extends Model
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasFactory;
 
     protected $fillable = [
         'name',
-        'email',
-        'password',
+        'description',
     ];
 
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
-    public function workspaces()
+    public function users()
     {
-        return $this->belongsToMany(Workspace::class)->withPivot('role')->withTimestamps();
+        return $this->belongsToMany(User::class)->withPivot('role')->withTimestamps();
     }
 
     public function tasks()

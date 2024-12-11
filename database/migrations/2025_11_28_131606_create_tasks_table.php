@@ -10,10 +10,12 @@ class CreateTasksTable extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('workspace_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('set null');
             $table->string('title');
             $table->text('description')->nullable();
             $table->date('due_date')->nullable();
-            $table->string('status')->default('todo'); // todo, in_progress, done
+            $table->enum('status', ['pending', 'in_progress', 'completed'])->default('pending');
             $table->timestamps();
         });
     }
@@ -22,4 +24,4 @@ class CreateTasksTable extends Migration
     {
         Schema::dropIfExists('tasks');
     }
-}
+};

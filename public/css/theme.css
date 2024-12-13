@@ -2,21 +2,18 @@ body {
     background: #f9f9f9;
   }
 
-  .app-brand-text.demo {
-    font-size: 3rem;
-    text-transform: none;
-  }
-  
   .text-daily {
     color: #0e74e9;
     font-weight: bold;
     font-size: xx-large;
+    text-transform: none;
   }
   
   .text-do {
     color: #0fddca;
     font-weight: bold;
     font-size: xx-large;
+    text-transform: none;
   }
   
   .bg-body {

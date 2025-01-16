@@ -1,5 +1,13 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+<style>
+  .menu-link i {
+    margin-right: 10px; /* Memberikan jarak antara ikon dan teks */
+  }
 
+  .menu-link div {
+    display: inline-block;
+  }
+</style>
   <!-- ! Hide app brand if navbar-full -->
   <div class="app-brand demo">
     <a href="{{url('/')}}" class="app-brand-link">

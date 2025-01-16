@@ -1,47 +1,60 @@
 <?php
-
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use App\Models\Task;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
-    public function index()
+    public function index(Project $project)
     {
-        // Ambil semua tasks dari database
-        $tasks = Task::all();
-
-        // Kirim data ke Blade
-        return view('content.sidebar.ToDo', compact('tasks'));
+        $tasks = $project->tasks()->get()->groupBy('status');
+        $users = $project->users()->get();  
+        return view('tasks.index', compact('project', 'tasks', 'users'));
     }
 
-
-    public function store(Request $request)
+    public function store(Request $request, Project $project)
     {
-        $validated = $request->validate([
-            'title' => 'required|max:255',
-            'description' => 'nullable|max:1000',
+        $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
             'due_date' => 'nullable|date',
-            'status' => 'required|in:todo,in_progress,done'
+            'priority' => 'required|in:low,medium,high',
         ]);
 
-        Task::create($validated);
+        $project->tasks()->create($request->all());
 
-        return redirect()->back()->with('success', 'Task added successfully!');
+        return redirect()->route('projects.tasks.index', $project)->with('success', 'Task created successfully.');
     }
 
-
-    public function update(Request $request, $id)
+    public function show(Task $task)
     {
-        $task = Task::findOrFail($id);
+        return view('tasks.show', compact('task'));
+    }
 
-        $validated = $request->validate([
-            'status' => 'required|in:todo,in_progress,done'
+    public function update(Request $request, Task $task)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'due_date' => 'nullable|date',
+            'priority' => 'required|in:low,medium,high',
+            'status' => 'required|in:to_do,in_progress,completed',
         ]);
 
-        $task->update($validated);
+        $task->update($request->all());
 
-        return response()->json(['success' => 'Task updated successfully!']);
+        return redirect()->route('projects.tasks.index', $task->project_id)->with('success', 'Task updated successfully.');
+    }
+
+    public function updateStatus(Request $request, Task $task)
+    {
+        $task->status = $request->input('status');
+        $task->save();
+
+        return response()->json(['message' => 'Task status updated successfully.']);
     }
 }

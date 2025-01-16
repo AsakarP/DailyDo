@@ -5,33 +5,33 @@
     },
     {
       "url": "/",
-      "name": "Dashboard",
-      "icon": "menu-icon tf-icons mdi mdi-view-grid-outline",
+      "name": "Home",
+      "icon": "bi bi-house-door",
       "slug": "app-dashboard"
     },
     {
-      "url": "/sidebar/timesheets",
-      "name": "Timesheets",
-      "icon": "menu-icon tf-icons mdi mdi-timer-refresh-outline",
-      "slug": "app-timesheets"
+      "url": "/projects",
+      "name": "Projects",
+      "icon": "bi bi-folder",
+      "slug": "app-projects"
     },
     {
-      "url": "/sidebar/todo",
-      "name": "Todo",
-      "icon": "menu-icon tf-icons mdi mdi-file-document-alert-outline",
-      "slug": "app-todo"
+      "url": "/routines",
+      "name": "Routines",
+      "icon": "bi bi-calendar-check",
+      "slug": "app-routines"
     },
     {
-      "url": "/sidebar/report",
-      "name": "Report",
-      "icon": "menu-icon tf-icons mdi mdi-file-document",
-      "slug": "app-report"
+      "url": "/notes",
+      "name": "Notes",
+      "icon": "bi bi-sticky",
+      "slug": "app-notes"
     },
     {
-      "url": "/pages/account-settings-account",
-      "name": "Settings",
-      "icon": "menu-icon tf-icons mdi mdi-cog",
-      "slug": "app-settings"
+      "url": "/reminders",
+      "name": "Reminders",
+      "icon": "bi bi-bell",
+      "slug": "app-reminders"
     }
   ]
 }

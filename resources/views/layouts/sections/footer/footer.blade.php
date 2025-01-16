@@ -8,10 +8,6 @@
         </script>
       </div>
       <div  class="d-none d-lg-inline-block">
-        <a href="{{"#"}}" class="footer-link me-3" target="_blank">Test</a>
-        <a href="{{"#"}}" target="_blank" class="footer-link me-3">Test2</a>
-        <a href="{{"#"}}" target="_blank" class="footer-link me-3">Test3</a>
-        <a href="{{"#"}}" target="_blank" class="footer-link d-none d-sm-inline-block">Test4</a>
       </div>
     </div>
   </div>

@@ -40,17 +40,14 @@ $navbarDetached = ($navbarDetached ?? '');
       <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
         <!-- Search -->
         <div class="navbar-nav align-items-center">
-          <div class="nav-item d-flex align-items-center">
-            <i class="mdi mdi-magnify mdi-24px lh-0"></i>
-            <input type="text" class="form-control border-2 shadow-none bg-white" placeholder="Search..." aria-label="Search..." style="width: 500px;">
-          </div>
+          <div class="nav-item d-flex align-items-center"></div>
         </div>
         <!-- /Search -->
         <ul class="navbar-nav flex-row align-items-center ms-auto">
 
           <!-- Nama User -->
           <li class="nav-item lh-1 me-3">
-            <a>John Doe</a>
+              <a>{{ auth()->user()->name }}</a>
           </li>
 
           <!-- User -->
@@ -61,53 +58,14 @@ $navbarDetached = ($navbarDetached ?? '');
               </div>
             </a>
             <ul class="dropdown-menu dropdown-menu-end mt-3 py-2">
-              <li>
-                <a class="dropdown-item pb-2 mb-1" href="javascript:void(0);">
-                  <div class="d-flex align-items-center">
-                    <div class="flex-shrink-0 me-2 pe-1">
-                      <div class="avatar avatar-online">
-                        <img src="{{ asset('assets/img/avatars/1.png') }}" alt class="w-px-40 h-auto rounded-circle">
-                      </div>
-                    </div>
-                    <div class="flex-grow-1">
-                      <h6 class="mb-0">John Doe</h6>
-                      <small class="text-muted">Admin</small>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <div class="dropdown-divider my-1"></div>
-              </li>
-              <li>
-                <a class="dropdown-item" href="javascript:void(0);">
-                  <i class="mdi mdi-account-outline me-1 mdi-20px"></i>
-                  <span class="align-middle">My Profile</span>
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="javascript:void(0);">
-                  <i class='mdi mdi-cog-outline me-1 mdi-20px'></i>
-                  <span class="align-middle">Settings</span>
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="javascript:void(0);">
-                  <span class="d-flex align-items-center align-middle">
-                    <i class="flex-shrink-0 mdi mdi-credit-card-outline me-1 mdi-20px"></i>
-                    <span class="flex-grow-1 align-middle ms-1">Billing</span>
-                    <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
-                  </span>
-                </a>
-              </li>
-              <li>
-                <div class="dropdown-divider my-1"></div>
-              </li>
-              <li>
-                <a class="dropdown-item" href="javascript:void(0);">
-                  <i class='mdi mdi-power me-1 mdi-20px'></i>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+              </form>
+
+              <a class="dropdown-item" href="javascript:void(0);" onclick="document.getElementById('logout-form').submit();">
+                  <i class="mdi mdi-power me-1 mdi-20px"></i>
                   <span class="align-middle">Log Out</span>
-                </a>
+              </a>
               </li>
             </ul>
           </li>
